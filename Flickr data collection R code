@@ -1,3 +1,10 @@
+install.packages("installr") # only for the first launch/time
+install.packages("devtools") # only for the first launch/time
+install.packages("rgdal") # only for the first launch/time
+install.packages("sf") # only for the first launch/time
+install.packages("raster") # only for the first launch/ime
+install_github("ropensci/photosearcher") # only for the first launch/time
+
 library(installr)
 library(devtools)
 library(rgdal)
