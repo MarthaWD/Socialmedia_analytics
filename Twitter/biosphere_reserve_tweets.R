@@ -4,7 +4,7 @@
 #           Journal of Open Source Software, 6(62), 3272, https://doi.org/10.21105/joss.03272                   #
 #################################################################################################################
 
-install.packages("academictwitteR") #For the first time
+install.packages("academictwitteR")
 devtools::install_github("cjbarrie/academictwitteR", build_vignettes = TRUE) #Alternatively, you can install the development version with
 vignette("academictwitteR-intro") #Get started by reading
 
