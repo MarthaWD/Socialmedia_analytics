@@ -14,7 +14,6 @@ bearer_token <- "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" # Insert bearer token
 
 file_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
 setwd(file_dir)
-bearer_token <- "AAAAAAAAAAAAAAAAAAAAAL7QMwEAAAAAtc9GVWqIvpvH0RTzPZYHjWUaxPA%3DWfZ6Rj3GgOBhH1cOYuCpMe2qMK8lFXisTTb163QB0VHfPRyrg4" # Insert bearer token
 
 get_tweets <- function(q="",page_n=500,start_time,end_time,token,next_token=""){
   # if(n>500){
