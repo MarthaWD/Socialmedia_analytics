@@ -1,33 +1,47 @@
 install.packages("installr") # only for the first launch/time
-install.packages("devtools") # only for the first launch/time
-install.packages("rgdal") # only for the first launch/time
-install.packages("sf") # only for the first launch/time
-install.packages("raster") # only for the first launch/ime
-install_github("ropensci/photosearcher") # only for the first launch/time
-
 library(installr)
+
+install.packages("devtools") # only for the first launch
 library(devtools)
+
+install.packages("rgdal") # only for the first launch
 library(rgdal)
+
+install.packages("sf") # only for the first launch
 library(sf)
+
+install.packages("rjson")
+library(rjson)
+
+install.packages("sp")
+library(sp)
+
+install.packages("RCurl") # only for the first launch/time
+library(RCurl)
+
+install.packages("maptools")
+library(maptools)
+
+install.packages("raster")
 library(raster)
+
+install_github("ropensci/photosearcher") # only for the first launch
 library(photosearcher)
-getwd()
-setwd("set working directory")
-getwd()
-#Tana
 
-write.table("ad6dd59802228bda5bc4a35a02397d48", file = "photosearcher_key.sysdata") #write a table with your key
+getwd()
 
-Tana = readOGR(dsn =  ".", "BasinBoundary", encoding = 'ESRI') # the boundaries of the Region of Interest
-ROI = st_as_sf(Tana) # transform the loaded map into a sf object, which the format the photo_searcher function "understands" it
-plot(Tana) # plot to check
+#Lake Tana Biosphere Reserve
+write.table("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", file = "photosearcher_key.sysdata") #write a table with your key
+biosphere = readOGR(dsn =  ".", "biospherereserve", encoding = 'ESRI') # the boundaries of the Region of Interest
+ROI = st_as_sf(biosphere) # tranform the loaded map into a sf object, which the format the photo_searcher function "understands" it
+plot(biosphere) # plot to check
 
 # the following function is the main function of this work. It downloads from FLICKR a list of photographs uploaded 
 #to FLICKR and taken within the boundaries of the Region of Interest
 
 output_points = photo_search(
   mindate_taken = "2016-01-01",
-  maxdate_taken = "2019-11-29",
+  maxdate_taken = "2020-12-31",
   has_geo = T,
   sf_layer = ROI,
   tags_any = FALSE
@@ -40,4 +54,5 @@ output <- output_points[!myvars] # drop not needed columns
 str(output) # check output
 
 #write to csv file and load in GIS
-write.csv(output, "Tana.csv", row.names = F)
+write.csv(output, "biosphere_2016_2020.csv", row.names = F)
+
